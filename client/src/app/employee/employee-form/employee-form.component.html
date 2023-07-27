@@ -1,1 +1,21 @@
-<p>employee-form works!</p>
+<form class="row" [formGroup]="service.employeeForm">
+    <div class="col-12 mb-3">
+        <label class="form-label mt-2">Fullname</label>
+        <input class="form-control form-coltrol-lg" placeholder="Enter your full name" formControlName="Fullname">
+    </div>
+    <div class="col-12 mb-3">
+        <label class="form-label mt-2">Location</label>
+        <input class="form-control form-coltrol-lg" placeholder="City, Country" formControlName="location">
+    </div>
+    <div class="col-6 mb-3">
+        <label class="form-label mt-2">Position</label>
+        <input class="form-control form-coltrol-lg" placeholder="Designation" formControlName="position">
+    </div>
+    <div class="col-6 mb-3">
+        <label class="form-label mt-2">Salary</label>
+        <input class="form-control form-coltrol-lg" placeholder="per anum" type="number" formControlName="salary">
+    </div>
+    <div class="col-12 mt-3 d-grid">
+        <button class="btn btn-success btn-lg" type="submit">Submit</button>
+    </div>
+</form>
