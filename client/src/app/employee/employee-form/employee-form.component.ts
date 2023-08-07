@@ -8,6 +8,22 @@ import { EmployeeService } from 'src/app/shared/employee.service';
   ]
 })
 export class EmployeeFormComponent {
- constructor (public service: EmployeeService ){}
 
+  submitted: Boolean = false;
+
+  constructor(public service: EmployeeService) { }
+
+  onSubmit() {
+    this.submitted=true;
+    if (this.service.employeeForm.valid)
+      {
+        this.service.postEmployee().subscribe(res=>{
+          console.log("get responce syccesfully");
+          
+        })
+      }
+    else
+      console.log("error");
+
+  }
 }

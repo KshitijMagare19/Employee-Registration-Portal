@@ -1,7 +1,7 @@
-<form class="row" [formGroup]="service.employeeForm">
+<form class="row" [formGroup]="service.employeeForm" (submit)="onSubmit()" [class.submitted] ="submitted">
     <div class="col-12 mb-3">
         <label class="form-label mt-2">Fullname</label>
-        <input class="form-control form-coltrol-lg" placeholder="Enter your full name" formControlName="Fullname">
+        <input class="form-control form-coltrol-lg" placeholder="Enter your full name" formControlName="fullname">
     </div>
     <div class="col-12 mb-3">
         <label class="form-label mt-2">Location</label>

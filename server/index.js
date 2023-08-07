@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 
 //local import
@@ -10,6 +11,7 @@ const {ErrorHandler} = require('./middleware/index');
 
 //middleware
 app.use(bodyParser.json());
+app.use(cors({origin:'http://localhost:4200'}))
 app.use('/api/employee',employeeRouter);
 app.use(ErrorHandler);
 
