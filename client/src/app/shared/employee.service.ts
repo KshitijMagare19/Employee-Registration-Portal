@@ -17,7 +17,7 @@ export class EmployeeService {
 
   readonly baseUrl = "http://localhost:3000/api/employee/"
   employeeForm = this.fb.group({ 
-    _id : [null],    
+    _id : [''],    
     fullname: ['',Validators.required],
     location: [''],
     position: ['',Validators.required],
@@ -30,7 +30,7 @@ export class EmployeeService {
     .pipe(catchError(this.handleError))
     .subscribe(data=>{
       this.list = data as Employee[];
-      console.log(data);
+      //console.log(data);
       
     })
 
@@ -40,6 +40,19 @@ export class EmployeeService {
 
     .pipe(catchError(this.handleError))
   }
+
+  putEmployee(){
+    return this.http.put(this.baseUrl + this.employeeForm.get('_id')?.value,this.employeeForm.value)
+
+    .pipe(catchError(this.handleError))
+  }
+
+  deleteEmployee(_id:string){
+    return this.http.delete(this.baseUrl+_id)
+
+    .pipe(catchError(this.handleError))
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.

@@ -22,10 +22,10 @@
             <td>{{emp.fullname}}</td>
             <td>{{emp.position}}</td>
             <td>{{emp.salary}}</td>
-            <td>
+            <td (click)="populateForm(emp)">
               <i class="far fa-pen-to-square fa-lg text-secondry"></i>
             </td>
-            <td>
+            <td (click)="deleteRecord(emp._id)">
               <i class="far fa-trash-alt fa-lg text-secondry"></i>
             </td>
           </tr>

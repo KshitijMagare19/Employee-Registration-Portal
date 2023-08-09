@@ -16,21 +16,30 @@ export class EmployeeFormComponent {
   constructor(public service: EmployeeService, private toastr: ToastrService) { }
 
   onSubmit() {
-    this.submitted=true;
-    if (this.service.employeeForm.valid)
-      {
-        this.service.postEmployee().subscribe(res=>{
+    this.submitted = true;
+    if (this.service.employeeForm.valid) {
+      if (this.service.employeeForm.get('_id')?.value == '') {
+        this.service.postEmployee().subscribe(res => {
           this.resetForm();
           this.service.fetchEmployee();
-          this.toastr.success('Created Sucessfully!','Emplyee Registered.')       
+          this.toastr.success('Created Sucessfully!', 'Emplyee Registered.')
         })
       }
+      else{
+        this.service.putEmployee().subscribe(res => {
+          this.resetForm();
+          this.service.fetchEmployee();
+          this.toastr.info('Updated Sucessfully!', 'Emplyee Updated.')
+        })
+      }
+
+    }
     else
       console.log("error");
 
   }
 
-  resetForm(){
+  resetForm() {
     this.service.employeeForm.reset();
     this.submitted = false;
   }

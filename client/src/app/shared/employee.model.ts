@@ -1,7 +1,7 @@
 export class Employee {
-    _id : String = "";    
-    fullname: String = "";
-    location: String = "";
-    position: String = "";
-    salary: Number = 0;
+    _id : string = "";    
+    fullname: string = "";
+    location: string = "";
+    position: string = "";
+    salary: string = "";
 }
